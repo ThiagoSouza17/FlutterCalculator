@@ -16,7 +16,7 @@ class _CalculatorState extends State<Calculator> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.black,
-        title: Text('Calculadora'),
+        title: Text('MagicFlutterCalculator'),
       ),
       body: Column(
         children: <Widget>[

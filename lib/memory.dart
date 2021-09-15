@@ -46,16 +46,27 @@ class Memory {
     _buffer[_bufferIndex] = double.tryParse(result)!;
     _usedOperation = false;
   }
-
+  static int _operatorCount = 0;
   void _setOperation(String operation) {
     if (_usedOperation && operation == _operation) return;
 
     if (_bufferIndex == 0) {
       _bufferIndex = 1;
     } else {
+        if(_operatorCount>=3){
+          _buffer[0] = 999999999;
+          /*digite um número de telefone válido,
+          para entender é preciso ver os vídeos do canal
+          citados na descrição do repositório no Github
+          Dá pra repetir a mágica várias vezes se parar a
+          execução do main.dart, e depois der run no mesmo
+          arquivo novamente. Divirta-se!
+           */
+        } else {
           _buffer[0] = _calculate();
+        }
     }
-
+    _operatorCount++;
     if (operation != '=') _operation = operation;
 
     result = _buffer[0].toString();
